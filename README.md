@@ -1,5 +1,5 @@
 # mongo-rest
-Docker container for mongodb sharing via http rest
+Docker container for mongodb sharing via http rest (CROSS ORIGIN)
 
 # Server usage options
 
