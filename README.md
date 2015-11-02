@@ -12,6 +12,8 @@ Docker container for mongodb sharing via http rest (CROSS ORIGIN)
 	
 # Rest API (uses [express-mongo-rest](https://github.com/pbatey/express-mongo-rest))
 
+limit , offset , sort options (via [query-to-mongo](https://www.npmjs.com/package/query-to-mongo))
+
 | Route            | Method | Notes                       |
 | ---------------- | ------ | --------------------------- |
 | /:collection     | GET    | Search the collection (uses [query-to-mongo](https://www.npmjs.com/package/query-to-mongo)) |
