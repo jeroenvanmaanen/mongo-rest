@@ -47,5 +47,15 @@ $.ajax({
 # Executing Docker's container example 
 
 ```
-docker run -d -p 3000:3000 -e ME_CONFIG_DBSTRING = mongodb://user:password@host:port/database -d linuxenko/mongo-rest
+docker run -p 3000:3000 -e ME_CONFIG_DBSTRING="mongodb://user:password@host:port/database" -d linuxenko/mongo-rest
 ```
+
+```
+docker run -p 3000:3000 -e ME_CONFIG_APIKEY=qwerty -e ME_CONFIG_DBSTRING="mongodb://user:password@host:port/database" -d linuxenko/mongo-rest
+```
+
+available options:
+        ME_CONFIG_DBSTRING = (default localhost or --linked mongo without authentication, db - test)
+	ME_CONFIG_READONLY = (default read-write)
+	ME_CONFIG_APIKEY = (default without key)
+	ME_CONFIG_ROOTURL  = (default /api/)
