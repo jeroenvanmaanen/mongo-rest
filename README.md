@@ -1,6 +1,10 @@
 # mongo-rest
 Docker container for mongodb sharing via http rest (CROSS ORIGIN)
 
+```
+	docker pull linuxenko/mongo-rest
+```
+
 # Server usage options
 
 	ME_CONFIG_DBSTRING = mongodb://user:password@host:port/database
