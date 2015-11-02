@@ -1,0 +1,16 @@
+{
+  "name": "mongo-rest",
+  "version": "0.0.1",
+  "description": "Mongo db sharing via http rest",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/linuxenko/mongo-rest"
+  },
+  "author": "Svetlana Linuxenko <linuxenko@yahoo.com>",
+  "license": "Unlicensed",
+  "dependencies": {
+    "express": "^4.12.0",
+    "express-mongo-rest": "^0.1.1"
+  }
+}
