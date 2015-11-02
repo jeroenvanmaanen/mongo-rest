@@ -55,7 +55,9 @@ docker run -p 3000:3000 -e ME_CONFIG_APIKEY=qwerty -e ME_CONFIG_DBSTRING="mongod
 ```
 
 available options:
+```
         ME_CONFIG_DBSTRING = (default localhost or --linked mongo without authentication, db - test)
 	ME_CONFIG_READONLY = (default read-write)
 	ME_CONFIG_APIKEY = (default without key)
 	ME_CONFIG_ROOTURL  = (default /api/)
+```
