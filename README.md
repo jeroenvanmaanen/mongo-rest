@@ -1,5 +1,9 @@
 # mongo-rest
-Docker container for mongodb sharing via http rest
+Docker container for mongodb sharing via http rest (CROSS ORIGIN)
+
+```
+	docker pull linuxenko/mongo-rest
+```
 
 # Server usage options
 
@@ -11,6 +15,8 @@ Docker container for mongodb sharing via http rest
 	Default application port is 3000, nobody cares, because it work inside of docker container
 	
 # Rest API (uses [express-mongo-rest](https://github.com/pbatey/express-mongo-rest))
+
+limit , offset , sort options (via [query-to-mongo](https://www.npmjs.com/package/query-to-mongo))
 
 | Route            | Method | Notes                       |
 | ---------------- | ------ | --------------------------- |
@@ -45,5 +51,17 @@ $.ajax({
 # Executing Docker's container example 
 
 ```
-docker run -d -p 3000:3000 -e ME_CONFIG_DBSTRING = mongodb://user:password@host:port/database -d linuxenko/mongo-rest
+docker run -p 3000:3000 -e ME_CONFIG_DBSTRING="mongodb://user:password@host:port/database" -d linuxenko/mongo-rest
+```
+
+```
+docker run -p 3000:3000 -e ME_CONFIG_APIKEY=qwerty -e ME_CONFIG_DBSTRING="mongodb://user:password@host:port/database" -d linuxenko/mongo-rest
+```
+
+available options:
+```
+        ME_CONFIG_DBSTRING = (default localhost or --linked mongo without authentication, db - test)
+	ME_CONFIG_READONLY = (default read-write)
+	ME_CONFIG_APIKEY = (default without key)
+	ME_CONFIG_ROOTURL  = (default /api/)
 ```
