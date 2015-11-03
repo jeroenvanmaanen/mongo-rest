@@ -16,7 +16,7 @@ var options = {
 	methods: process.env['ME_CONFIG_READONLY'] ? 'GET,OPTIONS,HEAD' : 'GET,PUT,POST,DELETE,HEAD,OPTIONS',
 	headers: 'Content-Type, Authorization, Content-Length, X-Requested-With, X-HTTP-Method-Override',
 	apiKey : process.env['ME_CONFIG_APIKEY'] || null ,
-	db : process.env['ME_CONFIG_DBSTRING'] || 'mongodb://localhost/27017/test',
+	db : process.env['ME_CONFIG_DBSTRING'] || 'mongodb://localhost:27017/test',
 	rootURL : process.env['ME_CONFIG_ROOTURL'] || '/api/' 
 };
 
