@@ -1,20 +1,44 @@
-# mongo-rest
-Docker container for mongodb sharing via http rest (CROSS ORIGIN)
+# Mongo Rest
+
+> Docker container for mongodb sharing via http rest using CORS and access control.<br />
+
+## Installation
 
 ```
 	docker pull linuxenko/mongo-rest
 ```
 
-# Server usage options
+## Usage 
 
+```
+docker run -p 3000:3000 -e ME_CONFIG_DBSTRING="mongodb://user:password@host:port/database" -d linuxenko/mongo-rest
+```
+
+```
+docker run -p 3000:3000 -e ME_CONFIG_APIKEY=qwerty \
+-e ME_CONFIG_DBSTRING="mongodb://user:password@host:port/database" -d linuxenko/mongo-rest
+```
+
+## Available options:
+
+```
+	ME_CONFIG_DBSTRING = (default localhost or --linked mongo without authentication, db - test)
+	ME_CONFIG_READONLY = (default read-write)
+	ME_CONFIG_APIKEY = (default without key)
+	ME_CONFIG_ROOTURL  = (default /api/)
+```
+
+Example environment options set :
+
+```
 	ME_CONFIG_DBSTRING = mongodb://user:password@host:port/database
 	ME_CONFIG_READONLY = y  
 	ME_CONFIG_APIKEY = apirequestkey
 	ME_CONFIG_ROOTURL = /api/
 	
-	Default application port is 3000, nobody cares, because it work inside of docker container
+```
 	
-# Rest API (uses [express-mongo-rest](https://github.com/pbatey/express-mongo-rest))
+## Rest API (uses [express-mongo-rest](https://github.com/pbatey/express-mongo-rest))
 
 limit , offset , sort options (via [query-to-mongo](https://www.npmjs.com/package/query-to-mongo))
 
@@ -32,15 +56,17 @@ limit , offset , sort options (via [query-to-mongo](https://www.npmjs.com/packag
 | /:collection/:id | DELETE | Remove a single document    |
 
 
-# Examples 
+## Remote call examples
 
-Retreiving records example :
-```
+Retreiving records :
+
+```js
 $.getJSON('http://server:3000/api/test/?apiKey=qwerty')
 ```
 
-Creating records example :
-```
+Creating records :
+
+```js
 $.ajax({ 
   type: 'POST', // server not ME_CONFIG_READONLY 
   url: 'http://server:3000/api/test/?apiKey=qwerty', // if ME_CONFIG_APIKEY enabled 
@@ -48,20 +74,7 @@ $.ajax({
   data: JSON.stringify({hello : "world"})});
 ```
 
-# Executing Docker's container example 
+# License
 
-```
-docker run -p 3000:3000 -e ME_CONFIG_DBSTRING="mongodb://user:password@host:port/database" -d linuxenko/mongo-rest
-```
+This is free and unencumbered software released into the public domain.
 
-```
-docker run -p 3000:3000 -e ME_CONFIG_APIKEY=qwerty -e ME_CONFIG_DBSTRING="mongodb://user:password@host:port/database" -d linuxenko/mongo-rest
-```
-
-available options:
-```
-        ME_CONFIG_DBSTRING = (default localhost or --linked mongo without authentication, db - test)
-	ME_CONFIG_READONLY = (default read-write)
-	ME_CONFIG_APIKEY = (default without key)
-	ME_CONFIG_ROOTURL  = (default /api/)
-```
