@@ -2,16 +2,17 @@
 
 > Docker container for mongodb sharing via http rest using CORS and access control.<br />
 
-## Installation
+### Installation
 
 ```
 	docker pull linuxenko/mongo-rest
 ```
 
-## Usage 
+### Usage 
 
 ```
-docker run -p 3000:3000 -e ME_CONFIG_DBSTRING="mongodb://user:password@host:port/database" -d linuxenko/mongo-rest
+docker run -p 3000:3000 \ 
+-e ME_CONFIG_DBSTRING="mongodb://user:password@host:port/database" -d linuxenko/mongo-rest
 ```
 
 ```
@@ -19,7 +20,7 @@ docker run -p 3000:3000 -e ME_CONFIG_APIKEY=qwerty \
 -e ME_CONFIG_DBSTRING="mongodb://user:password@host:port/database" -d linuxenko/mongo-rest
 ```
 
-## Available options:
+### Available options:
 
 ```
 	ME_CONFIG_DBSTRING = (default localhost or --linked mongo without authentication, db - test)
@@ -38,7 +39,7 @@ Example environment options set :
 	
 ```
 	
-## Rest API (uses [express-mongo-rest](https://github.com/pbatey/express-mongo-rest))
+### Rest API (uses [express-mongo-rest](https://github.com/pbatey/express-mongo-rest))
 
 limit , offset , sort options (via [query-to-mongo](https://www.npmjs.com/package/query-to-mongo))
 
@@ -56,7 +57,7 @@ limit , offset , sort options (via [query-to-mongo](https://www.npmjs.com/packag
 | /:collection/:id | DELETE | Remove a single document    |
 
 
-## Remote call examples
+### Remote call examples
 
 Retreiving records :
 
@@ -74,7 +75,7 @@ $.ajax({
   data: JSON.stringify({hello : "world"})});
 ```
 
-# License
+## License
 
 This is free and unencumbered software released into the public domain.
 
