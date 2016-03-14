@@ -77,7 +77,7 @@ $.ajax({
 
 ## License
 
-GPL
+GPLv3
 
 Copyright © 2014 Svetlana Linuxenko
 
