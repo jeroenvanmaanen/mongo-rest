@@ -5,12 +5,12 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/linuxenko/mongo-rest"
+    "url": "https://github.com/jeroenvanmaanen/mongo-rest"
   },
   "author": "Svetlana Linuxenko <linuxenko@yahoo.com>",
-  "license": "Unlicensed",
+  "license": "GPL-3.0",
   "dependencies": {
     "express": "^4.12.0",
-    "express-mongo-rest": "^0.1.1"
+    "express-mongo-rest": "^0.1.2"
   }
 }
